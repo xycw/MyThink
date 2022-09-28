@@ -20,7 +20,7 @@ class Database
 
     public function insert()
     {
-        /*$runs = new RunoobTblModel();
+        /*$runs = new RunoobTblModel()。;
         $runs->runoob_title = '学习Tp';
         $runs->runoob_author = 'Tp教程~~~';
         $runs->submission_date = date("Y-m-d", time());

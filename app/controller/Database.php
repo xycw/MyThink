@@ -10,7 +10,7 @@ use app\Model\User;
 use app\Model\UserTest;
 use think\response\Json;
 
-class DatabaseModel
+class Database
 {
     public function index()
     {

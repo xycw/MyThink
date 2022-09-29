@@ -8,7 +8,7 @@ use think\Model;
 
 class TestUser extends Model
 {
-    //Ä£ÐÍÐÞ¸ÄÆ÷
+    //æ¨¡åž‹ä¿®æ”¹å™¨
     protected $name = 'testuser';
 
     public function setPasswordAttr($value)

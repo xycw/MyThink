@@ -37,5 +37,8 @@ class RunoobTblModel extends model
         $arr = [1 => '删除', 2 => '正常', 0 => '待审核'];
         return $arr[$data['status']];
     }*/
-
+    public function scopeMale($query, $value)
+    {
+        $query->where('runoob_author', 'like', '%' . $value . '%')->limit(5);
+    }
 }

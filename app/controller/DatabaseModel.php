@@ -7,10 +7,11 @@ namespace app\controller;
 use app\Model\RunoobTblModel;
 use app\Model\RunoobTblModel as RunoobModel;
 use app\Model\User;
-use app\Model\UserTest;
+use app\Model\TestUser as TestUserModel;
+use think\facade\Db;
 use think\response\Json;
 
-class Database
+class DatabaseModel
 {
     public function index()
     {
@@ -33,8 +34,8 @@ class Database
         ]);*/
 
         $runs = UserTest::create(
-            ['email'=>'524468939',
-                'password'=>'vfdsbvdfbbdfb'], ['email','password'], false
+            ['email' => '524468939111',
+                'password' => 'vfdsbvdfbbdfb'], ['email', 'password'], false
         );
         return $runs;
     }
@@ -49,15 +50,23 @@ class Database
 
     public function schema()
     {
-        //$run = RunoobTblModel::find(27);
+        $runs = RunoobTblModel::find(27);
 
-        $runs = RunoobModel::withArr('runoob_title', function ($value) {
+        /*$runs = RunoobModel::withArr('runoob_title', function ($value) {
             return strtolower($value);
-        })->find(6);
+        })->find(6);*/
         //echo $run->status;
         //echo $run->getData('status');
         return json($runs);
+    }
 
-
+    public function scope()
+    {
+        //$res = TestUserModel::find(2);
+        $res = TestUserModel::scope('male')->select();
+        //$res = RunoobTblModel::scope('runoob_author', 'TP')->select();
+        //$res = TestUserModel::scope('email','xiao');
+        echo Db::getlastsql()."\n";
+        return json($res);
     }
 }
